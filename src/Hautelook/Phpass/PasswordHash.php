@@ -313,7 +313,11 @@ class PasswordHash
         if ($hash[0] == '*') {
             $hash = crypt($password, $stored_hash);
         }
-
-        return hash_equals($stored_hash, $hash);
+        
+        if (function_exists('hash_equals')) {
+            return hash_equals($stored_hash, $hash);
+        } else {
+            return $hash === $stored_hash;
+        }
     }
 }
