@@ -1,11 +1,11 @@
 <?php
 
-// namespace Hautelook\Phpass\Tests;
+namespace Hautelook\Phpass\Tests;
 
 use Hautelook\Phpass\PasswordHash;
 
 /**
- * 
+ *
  */
 class BasicTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,7 +15,7 @@ class BasicTest extends \PHPUnit_Framework_TestCase
     	$hasher  = new PasswordHash(8,false);
     	$correct = 'test12345';
 		$hash 	 = $hasher->HashPassword($correct);
-		
+
 		$this->assertTrue($hasher->CheckPassword($correct, $hash));
     }
 
